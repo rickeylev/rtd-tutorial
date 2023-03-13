@@ -8,4 +8,4 @@ build:
     - golang
   jobs:
     pre_build:
-      - go get github.com/bazelbuild/bazelisk
+      - go install github.com/bazelbuild/bazelisk
