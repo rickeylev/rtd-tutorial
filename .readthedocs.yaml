@@ -10,3 +10,4 @@ build:
   jobs:
     pre_build:
       - go install github.com/bazelbuild/bazelisk@latest
+      - bazelisk help
