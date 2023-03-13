@@ -8,4 +8,4 @@ build:
     - golang
   jobs:
     pre_build:
-      - go help
+      - go get github.com/bazelbuild/bazelisk
