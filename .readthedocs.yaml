@@ -15,3 +15,4 @@ build:
       - echo hi 2>&1
       - which bazel
       - which bazelisk
+      - bazel help
