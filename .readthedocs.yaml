@@ -5,5 +5,5 @@ build:
   tools:
     golang: "1.19"
   jobs:
-    pre_build:
-      - echo "hello" > _readthedocs/html/custom.html
+    post_build:
+      - echo "hello"
