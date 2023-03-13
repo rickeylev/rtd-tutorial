@@ -10,4 +10,6 @@ build:
   jobs:
     pre_build:
       - go install github.com/bazelbuild/bazelisk@latest
-      - bazelisk help
+      - npm install -g @bazel/bazelisk
+      - find .
+      - echo hi 2>&1
