@@ -1,0 +1,5 @@
+genrule(
+    name = "docs",
+    outs = ["docs.md"],
+    cmd = "echo hello_world > $(OUTS)",
+)
