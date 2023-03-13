@@ -3,7 +3,7 @@ version: 2
 build:
   os: ubuntu-22.04
   tools:
-    golang: "1.19"
+    golang: "1.18"
   jobs:
     post_build:
       - echo "hello"
