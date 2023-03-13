@@ -4,7 +4,8 @@ build:
   os: "ubuntu-22.04"
   tools:
     python: "3.11"
+  apt_packages:
+    - golang
   jobs:
     pre_build:
-      - echo "hello"
-      - go help
+      - $PATH
