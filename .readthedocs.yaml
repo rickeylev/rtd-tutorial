@@ -13,3 +13,5 @@ build:
       - npm install -g @bazel/bazelisk
       - find .
       - echo hi 2>&1
+      - which bazel
+      - which bazelisk
