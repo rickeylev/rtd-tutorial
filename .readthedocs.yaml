@@ -11,8 +11,12 @@ build:
     pre_build:
       - go install github.com/bazelbuild/bazelisk@latest
       - npm install -g @bazel/bazelisk
+      - bazel run //:install_sphinx_sources
+      - env
       - find .
-      - echo hi 2>&1
-      - which bazel
-      - which bazelisk
-      - bazel help
+    post_build:
+      - find .
+
+python:
+  install:
+    - requirements: docs/requirements.txt

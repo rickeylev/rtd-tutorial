@@ -1,5 +1,13 @@
 genrule(
     name = "docs",
-    outs = ["docs.md"],
-    cmd = "echo hello_world > $(OUTS)",
+    srcs = ["mydocs.tmpl"],
+    outs = ["docs.rst"],
+    cmd = "cp $< $@",
+)
+
+sh_binary(
+    name = "install_sphinx_sources",
+    srcs = ["install_sphinx_sources.sh"],
+    args = ["$(rootpath :docs)"],
+    data = [":docs"],
 )
