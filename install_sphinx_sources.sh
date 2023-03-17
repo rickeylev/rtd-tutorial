@@ -1,4 +1,6 @@
 #!/bin/bash
 
-pwd
-cp -v $1 $BUILD_WORKING_DIRECTORY/docs/source/mydocs.md
+set -x
+for path in "$@"; do
+  cp -v $path $BUILD_WORKING_DIRECTORY/docs/source/$(basename $path)
+done

@@ -1,13 +1,24 @@
+load("@io_bazel_stardoc//stardoc:stardoc.bzl", "stardoc")
+
 genrule(
     name = "docs",
     srcs = ["mydocs.tmpl"],
-    outs = ["docs.rst"],
+    outs = ["docs.md"],
     cmd = "cp $< $@",
 )
 
 sh_binary(
     name = "install_sphinx_sources",
     srcs = ["install_sphinx_sources.sh"],
-    args = ["$(rootpath :docs)"],
+    args = [
+        "$(rootpath :docs)",
+        "$(rootpath :mylib.md)",
+    ],
     data = [":docs"],
+)
+
+stardoc(
+    name = "mylib_docs",
+    out = "mylib.md",
+    input = "mylib.bzl",
 )
