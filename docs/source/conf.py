@@ -18,7 +18,7 @@ extensions = [
     'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
     'myst_parser',
-    'sphinx_rtd_theme',
+    'sphinx_rtd_theme', # Necessary to get jquery to make flyout work
 ]
 
 intersphinx_mapping = {
