@@ -1,0 +1,7 @@
+[
+  {
+    "regex": "BUILD_SPHINX_HTML",
+    "command": "make",
+    "args": [ "html"]
+  }
+]

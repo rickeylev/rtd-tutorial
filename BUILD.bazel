@@ -12,13 +12,28 @@ sh_binary(
     srcs = ["install_sphinx_sources.sh"],
     args = [
         "$(rootpath :docs)",
-        "$(rootpath :mylib.md)",
+        "$(rootpaths :mylib_docs)",
     ],
-    data = [":docs"],
+    data = [
+        "crossrefs.md",
+        ":docs",
+        ":mylib_docs",
+        ":sphinx_sources",
+    ],
+)
+
+filegroup(
+    name = "sphinx_sources",
+    srcs = [
+        "docs/source/conf.py",
+        "docs/source/index.rst",
+        "docs/source/usage.rst",
+    ] + glob(["docs/source/_static/**"]),
 )
 
 stardoc(
     name = "mylib_docs",
     out = "mylib.md",
+    func_template = "func_template.vm",
     input = "mylib.bzl",
 )

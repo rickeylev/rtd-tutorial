@@ -22,4 +22,6 @@ Contents
 
    usage
    api
-   mydocs
+   myapi
+   mylib
+   docs

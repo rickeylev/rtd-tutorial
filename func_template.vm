@@ -1,0 +1,44 @@
+#[[##]]# ${funcInfo.functionName}
+
+<pre>
+${util.funcSummary($funcInfo)}
+</pre>
+
+${funcInfo.docString}
+
+#if (!$funcInfo.getParameterList().isEmpty())
+**PARAMETERS**
+
+:::{list-table}
+:header-rows: 1
+:align: left
+:class: tight-table
+
+*   - Name
+    - Description
+    - Default Value
+
+#foreach ($param in $funcInfo.getParameterList())
+
+*   - [${param.name}]{#${funcInfo.functionName}-${param.name}}[](#${funcInfo.functionName}-${param.name}){.headerlink}
+    - ${param.docString.replaceAll("\n", " ")}
+    - #if(!$param.getDefaultValue().isEmpty()) `${param.getDefaultValue()}` #end
+#end
+
+:::
+#end
+
+#if (!$funcInfo.getReturn().docString.isEmpty())
+
+**RETURNS**
+
+${util.htmlEscape($funcInfo.getReturn().docString)}
+#end
+#if (!$funcInfo.getDeprecated().docString.isEmpty())
+
+**DEPRECATED**
+
+${util.htmlEscape($funcInfo.getDeprecated().docString)}
+#end
+
+[reference3](#span-target)
