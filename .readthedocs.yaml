@@ -1,15 +1,18 @@
 version: 2
 
+formats:
+  - pdf
+
+sphinx:
+  configuration: docs/source/conf.py
+
 build:
   os: "ubuntu-22.04"
   tools:
     python: "3.11"
     nodejs: "19"
-  apt_packages:
-    - golang
   jobs:
     pre_build:
-      - go install github.com/bazelbuild/bazelisk@latest
       - npm install -g @bazel/bazelisk
       - bazel run //:install_sphinx_sources
       - env
