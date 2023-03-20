@@ -47,6 +47,8 @@ myst_enable_extensions = [
     "attrs_block",
     "attrs_inline",
     "colon_fence",
+    "deflist",
+    #"substitution"
 ]
 
 # These folders are copied to the documentation's HTML output

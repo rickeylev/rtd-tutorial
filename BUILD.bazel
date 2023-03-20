@@ -35,5 +35,6 @@ stardoc(
     name = "mylib_docs",
     out = "mylib.md",
     func_template = "func_template.vm",
+    header_template = "header_template.vm",
     input = "mylib.bzl",
 )

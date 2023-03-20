@@ -1,3 +1,6 @@
+#set( $nl = "
+" )
+{.function}
 #[[##]]# ${funcInfo.functionName}
 
 <pre>
@@ -9,36 +12,21 @@ ${funcInfo.docString}
 #if (!$funcInfo.getParameterList().isEmpty())
 **PARAMETERS**
 
-:::{list-table}
-:header-rows: 1
-:align: left
-:class: tight-table
-
-*   - Name
-    - Description
-    - Default Value
-
 #foreach ($param in $funcInfo.getParameterList())
 
-*   - [${param.name}]{#${funcInfo.functionName}-${param.name}}[](#${funcInfo.functionName}-${param.name}){.headerlink}
-    - ${param.docString.replaceAll("\n", " ")}
-    - #if(!$param.getDefaultValue().isEmpty()) `${param.getDefaultValue()}` #end
+[${param.name}]{#${funcInfo.functionName}-${param.name}}[](#${funcInfo.functionName}-${param.name}){.headerlink}
+: #if(!$param.getDefaultValue().isEmpty())(_default `${param.getDefaultValue()}`_) #end
+$param.docString.replaceAll("$nl", "$nl  ")
 #end
-
-:::
 #end
-
 #if (!$funcInfo.getReturn().docString.isEmpty())
 
-**RETURNS**
-
-${util.htmlEscape($funcInfo.getReturn().docString)}
+RETURNS
+: ${funcInfo.getReturn().docString}
 #end
 #if (!$funcInfo.getDeprecated().docString.isEmpty())
 
 **DEPRECATED**
 
-${util.htmlEscape($funcInfo.getDeprecated().docString)}
+${funcInfo.getDeprecated().docString}
 #end
-
-[reference3](#span-target)

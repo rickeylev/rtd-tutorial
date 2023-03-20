@@ -11,5 +11,7 @@ for path in "$@"; do
   #cp -vf $path $BUILD_WORKSPACE_DIRECTORY/docs/source/$(basename $path)
 done
 
-cd $BUILD_WORKSPACE_DIRECTORY/docs
-make html
+if [[ -z "$READTHEDOCS" ]]; then
+  cd $BUILD_WORKSPACE_DIRECTORY/docs
+  make html
+fi

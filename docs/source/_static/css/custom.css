@@ -5,3 +5,12 @@
 .wy-nav-content {
     max-width: 70%;
 }
+
+.function {
+  border: thin solid grey;
+}
+
+.function h2 {
+  background-color: #e7f2fa;
+  border-bottom: thin solid grey;
+}
